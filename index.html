@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="transition duration-300">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - Nazwa Kanaya Putri</title>
+
+    <!-- CONFIG HARUS SEBELUM TAILWIND -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="p-8 max-w-2xl mx-auto 
+bg-blue-50 text-gray-800 
+dark:bg-blue-950 dark:text-gray-200 
+transition duration-300 min-h-screen">
+
+    <!-- HEADER -->
+    <header class="flex justify-between items-center pb-8">
+        <h1 class="text-4xl font-bold text-blue-500 dark:text-blue-300">
+            Todo List - Nazwa
+        </h1>
+
+        <!-- <button onclick="toggleTheme()" 
+            class="px-4 py-2 rounded-lg text-sm font-semibold
+            bg-blue-200 text-blue-900
+            dark:bg-blue-800 dark:text-blue-100
+            hover:scale-105 transition">
+        </button> -->
+    </header>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- FORM -->
+        <section class="bg-blue-100 dark:bg-blue-900 p-6 rounded-lg shadow-sm transition">
+            <form class="flex flex-col gap-4 md:flex-row">
+
+                <input class="border p-2 rounded flex-grow 
+                focus:outline-blue-500 dark:bg-blue-800 dark:border-blue-700"
+                type="text" id="todo-input"
+                placeholder="Apa yang ingin kamu kerjakan?">
+
+                <input class="border p-2 rounded 
+                focus:outline-blue-500 dark:bg-blue-800 dark:border-blue-700"
+                type="date" id="todo-date">
+
+                <button type="button"
+                    onclick="addTodo()"
+                    class="bg-blue-500 text-white px-6 py-2 rounded font-bold
+                    hover:bg-blue-600 transition">
+                    Tambah
+                </button>
+            </form>
+        </section>
+
+        <!-- ACTION -->
+        <section class="flex flex-wrap gap-2 pt-6 justify-between items-center border-b pb-4
+        border-blue-200 dark:border-blue-800 transition">
+
+            <button onclick="deleteAllTodos()"
+                class="border rounded px-4 py-2
+                bg-red-500 text-white hover:bg-red-600
+                text-sm font-medium transition">
+                Hapus Semua
+            </button>
+
+            <div class="flex gap-1 bg-blue-100 dark:bg-blue-800 p-1 rounded-lg">
+                <button onclick="filterTodos('all')"
+                    class="px-3 py-1 text-sm rounded-md hover:bg-white dark:hover:bg-blue-700 transition font-medium">
+                    Semua
+                </button>
+                <button onclick="filterTodos('active')"
+                    class="px-3 py-1 text-sm rounded-md hover:bg-white dark:hover:bg-blue-700 transition font-medium text-yellow-600">
+                    Aktif
+                </button>
+                <button onclick="filterTodos('completed')"
+                    class="px-3 py-1 text-sm rounded-md hover:bg-white dark:hover:bg-blue-700 transition font-medium text-green-600">
+                    Selesai
+                </button>
+            </div>
+        </section>
+
+        <!-- TODO LIST -->
+        <section class="pt-6">
+            <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-300 mb-4">
+                Daftar Tugas
+            </h2>
+
+            <ul class="space-y-3" id="todo-list">
+                <li class="text-gray-500 italic text-center py-4">
+                    Belum ada tugas tersedia
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="pt-12">
+        <p class="text-center text-gray-400 text-sm italic">
+            © 2026 Nazwa Todo App
+        </p>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>
